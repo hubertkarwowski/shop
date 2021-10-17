@@ -5,6 +5,7 @@ function MenuItem({ title, imageUrl, size, history, linkUrl, match }) {
   return (
     <div
       className={`${size} menu-item`}
+      /*match.url jest po to by po kliknięciu na dany przedmiot nie został dodawany do url w nieskończoność linkUrl */
       onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
       <div
