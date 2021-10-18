@@ -1,24 +1,50 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
+
+import { auth } from "./firebase/firebase-utils";
+import { Switch, Route } from "react-router-dom";
+
 import Homepage from "./pages/homepage/Homepage";
 import ShopPage from "./pages/shop/Shop";
-import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import signinAndSignout from "./pages/signinAndSignout/signinAndSignout";
 
-function App() {
-  return (
-    <div>
-      {/*header będąc poza Switch będzie znajdował się na każdej stronie */}
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        {/*route przenosi wyrenderuje shoppage gdy url będzie zawierało /shop, 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentUser: null,
+    };
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
+      console.log(user);
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <div>
+        {/*header będąc poza Switch będzie znajdował się na każdej stronie */}
+        <Header currentUser={this.state.currentUser} />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          {/*route przenosi wyrenderuje shoppage gdy url będzie zawierało /shop, 
          a po /shop nie ważne co się znajduje, może to być cokolwiek a i tak 
          component shoppage zostanie wyrenderowany  */}
-        <Route path="/shop" component={ShopPage} />
-      </Switch>
-    </div>
-  );
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/signin" component={signinAndSignout} />
+        </Switch>
+      </div>
+    );
+  }
 }
-
-export default App;
