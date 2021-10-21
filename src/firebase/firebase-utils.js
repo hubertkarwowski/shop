@@ -45,4 +45,16 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
+const providerFb = new firebase.auth.FacebookAuthProvider();
+providerFb.setCustomParameters({ prompt: "select_account" });
+export const singinWithFb = () => auth.signInWithPopup(providerFb);
+
+const providerGH = new firebase.auth.GithubAuthProvider();
+providerFb.setCustomParameters({ prompt: "select_account" });
+export const singinWithGH = () => auth.signInWithPopup(providerGH);
+
+const providerTwitter = new firebase.auth.TwitterAuthProvider();
+providerFb.setCustomParameters({ prompt: "select_account" });
+export const singinWithTwitter = () => auth.signInWithPopup(providerTwitter);
+
 export default firebase;
