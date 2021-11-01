@@ -67,11 +67,15 @@ export default class Signin extends Component {
             </CustomButton>
           </div>
           <div className="buttons">
-            <CustomButton onClick={singinWithFb}>FACEBOOK SIGN IN</CustomButton>
-            <CustomButton onClick={singinWithGH}>GITHUB SIGN IN</CustomButton>
+            <CustomButton onClick={singinWithFb} isFacebookSignIn>
+              FACEBOOK SIGN IN
+            </CustomButton>
+            <CustomButton onClick={singinWithGH} isGithubSignIn>
+              GITHUB SIGN IN
+            </CustomButton>
           </div>
           <div className="buttons">
-            <CustomButton onClick={singinWithTwitter}>
+            <CustomButton onClick={singinWithTwitter} isTwitterSignIn>
               TWITTER SIGN IN
             </CustomButton>
           </div>

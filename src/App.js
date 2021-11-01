@@ -5,6 +5,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase-utils";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
+import { selectCollectionsForPreview } from "./redux/shop/shopSelector";
 
 import Homepage from "./pages/homepage/Homepage";
 import ShopPage from "./pages/shop/Shop";
