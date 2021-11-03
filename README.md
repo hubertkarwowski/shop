@@ -1,3 +1,4 @@
+
 # Hi there ✋!
 **This project is from a course!** I've changed some styles and have added few sign up buttons(Facebook,Twitter,GitHub)<br>
 ## Technologies i've used:
@@ -19,4 +20,19 @@ I wanted to learn more about React and see where my skills are lacking.
 <p>
 <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
 </p>
+
+### Installation
+
+
+
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/hubertkarwowski/shop.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
 
